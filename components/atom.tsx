@@ -23,8 +23,8 @@ export default async function  Atom({ slug }: { slug: string[] }) {
   console.log({ product  })
   console.log({ Atoms })
   return (
-    <section className='grow'>
-      <div className='p-8'>
+    <section className='grow columns-2 min-h-screen '>
+      <div className='p-8 flex-col'>
         <div className='flex items-center gap-3'>
          
           <div>
@@ -37,14 +37,13 @@ export default async function  Atom({ slug }: { slug: string[] }) {
             <h4 className='font-semibold'>Snippet</h4>
             <p className='text-sm text-gray-500'>{atom.snippet}</p>
             <p className='text-sm text-gray-500'>{atom.description}</p>
-           
-            
+      
           </div>
         </div>
 
         <div className='mt-10 flex flex-col gap-12 lg:flex-row'>
           <ul className='flex list-disc flex-col gap-1 p-8 text-sm'>
-            <h3 className='mb-3 border-b pb-3 text-lg font-semibold'>Products</h3>
+            <h3 className='mb-3 border-b pb-3 text-lg font-semibold'>Cases</h3>
             {products?.map(product => (
               <li key={product.id} className='list-item list-inside'>
                 <Link
@@ -79,9 +78,21 @@ export default async function  Atom({ slug }: { slug: string[] }) {
                 </p>
               </div>
             </div>
+            
           )}
+          
         </div>
+        
+        <div className='flex flex-col gap-4 items-left justify-items-start sm:p-16 p-4 border float-left'>
+          <div className='border'>
+            <p>Total monthly payment</p>
+          <h2 className='font-semibold text-3xl justify-items-start'>Price: {atom?.price}</h2>
+            <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded justify-items-start'>Top up my cover</button>
+          </div>
+        </div>
+
       </div>
+      
     </section>
   )
 }
